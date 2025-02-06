@@ -6,8 +6,8 @@ domain = 'http://icpc.pku.edu.cn'
 
 def parse(post):
     return {
-        'title': post.a.text.split('[')[0],
-        'description': post.a.text,
+        'title': post.a.text.split('[')[0].decode('utf-8'),
+        'description': post.a.text.decode('utf-8'),
         'link': post.a['href'],
         'pubDate': post.a.span.text.strip('[]'),
         'author': 'ICPC 北京总部'
