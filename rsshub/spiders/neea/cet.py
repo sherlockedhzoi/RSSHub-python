@@ -19,9 +19,9 @@ def ctx():
     soup = BeautifulSoup(html, 'html.parser')
     posts = map(lambda span: span.parent, soup.find_all('span', id='ReportIDname'))
     return {
-        'title': 'NEEA - NCRE',
+        'title': 'NEEA - CET',
         'link': url,
-        'description': '''全国计算机等级考试（National Computer Rank Examination，简称NCRE），是经原国家教育委员会（现教育部）批准，由教育部教育考试院（原教育部考试中心）主办，面向社会，用于考查应试人员计算机应用知识与技能的全国性计算机水平考试体系。NCRE开考之后，受到社会广泛关注和认可，为我国信息化技术人才的培养做出了重要贡献。''',
+        'description': '　全国大学英语四、六级考试（CET）是由教育部主办，教育部教育考试院（原教育部考试中心）主持和实施的大规模标准化考试，是全国性的教学考试，其目的是促进我国大学英语教学工作，对大学生的英语能力进行客观、准确的测量，为提高我国大学英语课程的教学质量提供服务。CET始于1987年，已走过了三十多年的历程，对我国大学英语教学的发展和改革产生了积极的影响。',
         'author': 'Sherlocked HZOI',
         'items': list(map(parse, posts))
     }
