@@ -17,7 +17,7 @@ def ctx():
     url = f'{domain}/html1/category/1507/872-1.htm'
     html = requests.get(url).text
     soup = BeautifulSoup(html, 'html.parser')
-    posts = soup.find('div', class_='listdiv').find('ul', id='first_data').find_all('li')
+    posts = soup.find('ul', id='first_data').find_all('li')
     return {
         'title': 'NEEA - NCRE',
         'link': url,
