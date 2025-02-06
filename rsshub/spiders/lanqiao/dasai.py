@@ -15,7 +15,7 @@ def parse(post):
 
 def ctx():
     url = 'https://www.guoxinlanqiao.com/api/news/find?status=1&project=dasai&progid=20&pageno=1&pagesize=10'
-    posts = requests.get(url).json()       
+    posts = requests.get(url).json()['datalist']
     return {
         'title': '蓝桥云课 - 蓝桥杯 - 大赛通知',
         'link': f'{domain}/notices/?progid=20',
