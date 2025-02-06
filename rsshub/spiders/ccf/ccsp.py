@@ -6,8 +6,8 @@ domain = 'https://www.ccf.org.cn'
 
 def parse(post):
     return {
-        'title': post.find('div', class_='info').find('a', class_='name').text.encode('utf-8'),
-        'description': post.find('div', class_='info').find('div', class_='summary').a.text.encode('utf-8'),
+        'title': post.find('div', class_='info').find('a', class_='name').text.encode('latin1').decode('utf-8'),
+        'description': post.find('div', class_='info').find('div', class_='summary').a.text.encode('latin1').decode('utf-8'),
         'link': f'{domain}{post.find('div', class_='info').find('a', class_='name')['href']}',
         'pubDate': post.find('div', class_='info').find('div', class_='time').text,
         'author': 'CCF组委会'

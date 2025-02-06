@@ -5,8 +5,8 @@ domain = 'http://www.ia.cas.cn'
 
 def parse(post):
     return {
-        'title': post.a.text.encode,
-        'description': post.a.text + post.span.text,
+        'title': post.a.text.encode('latin1').decode('utf-8'),
+        'description': (post.a.text + post.span.text).encode('latin1').decode('utf-8'),
         'link': domain + post.a['href'],
         'pubDate': post.span.text,
         'author': '中国科学院自动化研究所'
