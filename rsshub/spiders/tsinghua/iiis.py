@@ -17,7 +17,7 @@ def ctx():
     url = f'{domain}/graduate/#jy3'
     html = requests.get(url).text
     soup = BeautifulSoup(html, 'html.parser')
-    posts = soup.find('div', class_='item')
+    posts = soup.find_all('div', class_='item')
     return {
         'title': '清华大学交叉信息研究院 - 招生公告',
         'link': url,
