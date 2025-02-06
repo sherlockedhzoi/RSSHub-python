@@ -7,10 +7,11 @@ domain = 'https://gplt.patest.cn'
 def parse(post):
     return {
         'title': post['title'],
-        'description': f'#{post["contest"]["name"]}',
+        'description': f'#{post["contest"]["name"]}' if post["contest"] is not None else '',
+        'category': post['contest']['name'] if post['contest'] is not None else 'GPLT',
         'link': post['href'],
         'pubDate': post['publishedAt'],
-        'author': post['contest']['name']
+        'author': '主办方'
     }
 
 def ctx():
