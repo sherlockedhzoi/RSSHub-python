@@ -12,8 +12,8 @@ headers = {
 
 def parse(post):
     return {
-        'title': post.find('span', id='ReportIDname').a.text.decode('utf-8'),
-        'description': post.find('span', id='ReportIDname').a.text.decode('utf-8') + post.find('span', id='ReportIDIssueTime').text.decode('utf-8'),
+        'title': post.find('span', id='ReportIDname').a.text.encode('utf-8'),
+        'description': post.find('span', id='ReportIDname').a.text.encode('utf-8') + post.find('span', id='ReportIDIssueTime').text.encode('utf-8'),
         'link': domain + post.find('span', id='ReportIDname').a['href'],
         'pubDate': post.find('span', id='ReportIDIssueTime').text,
         'author': '中国教育考试网'
