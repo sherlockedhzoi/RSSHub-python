@@ -1,4 +1,3 @@
-import json
 import requests
 from bs4 import BeautifulSoup
 
@@ -6,8 +5,8 @@ domain = 'http://icpc.pku.edu.cn'
 
 def parse(post):
     return {
-        'title': post.a.text.split('[')[0].encode('utf-8'),
-        'description': post.a.text.encode('utf-8'),
+        'title': post.a.text.split('[')[0].encode('latin1'),
+        'description': post.a.text.encode('latin1'),
         'link': post.a['href'],
         'pubDate': post.a.span.text.strip('[]'),
         'author': 'ICPC 北京总部'
