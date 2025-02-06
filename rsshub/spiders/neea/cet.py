@@ -4,6 +4,10 @@ from bs4 import BeautifulSoup
 
 domain = 'https://cet.neea.edu.cn'
 
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+}
+
 def parse(post):
     return {
         'title': post.find('span', id='ReportIDname').a.text,
@@ -15,7 +19,7 @@ def parse(post):
 
 def ctx():
     url = f'{domain}/html1/category/16093/1124-1.htm'
-    html = requests.get(url).text
+    html = requests.get(url, headers=headers).text
     soup = BeautifulSoup(html, 'html.parser')
     posts = soup.find('ul', id='first_data').find_all('li')
     return {
