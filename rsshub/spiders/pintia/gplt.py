@@ -14,10 +14,8 @@ def parse(post):
     }
 
 def ctx():
-    url = 'https://www.guoxinlanqiao.com/api/news/find?status=1&project=dasai&progid=20&pageno=1&pagesize=10'
-    posts = requests.get(url, cookies={
-        'PTASession': '9c55c947-a561-4897-8c28-c1e83cf246ea'
-    }).json()['data']['notifications']
+    url = 'https://gplt.pintia.cn/api/cached/notifications'
+    posts = requests.get(url).json()['data']['notifications']
     return {
         'title': '蓝桥云课 - 蓝桥杯 - 大赛通知',
         'link': f'{domain}/notification',
