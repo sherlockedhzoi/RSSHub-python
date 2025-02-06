@@ -2,9 +2,6 @@ import json
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone
-import pytz
-
-timezone = pytz.timezone("Asia/Shanghai")
 
 domain = 'https://astar.baidu.com'
 
@@ -12,7 +9,7 @@ def parse(post):
     timestamp_ms = post['updateTime']
     timestamp_s = timestamp_ms / 1000
     utc_time = datetime.fromtimestamp(timestamp_s, tz=timezone.utc)
-    current_time = utc_time.astimezone(timezone).strftime('%Y-%m-%d %H:%M:%S %Z')
+    current_time = utc_time.strftime('%Y-%m-%d %H:%M:%S %Z')
     return {
         'title': post['title'],
         'description': post['simpleContent'],
