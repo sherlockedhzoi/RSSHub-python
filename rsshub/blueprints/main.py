@@ -56,6 +56,11 @@ def filter_content(ctx):
 
 #---------- feed路由从这里开始 -----------#
 
+@bp.route('/pintia/gplt')
+def gplt():
+    from rsshub.spiders.pintia.gplt import ctx
+    return render_template('main/atom.xml', **filter_content(ctx()))
+
 @bp.route('/lanqiao/dasai')
 def lanqiao_dasai():
     from rsshub.spiders.lanqiao.dasai import ctx
