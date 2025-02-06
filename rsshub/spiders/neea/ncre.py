@@ -17,7 +17,7 @@ def ctx():
     url = f'{domain}/html1/category/1507/872-1.htm'
     html = requests.get(url).text
     soup = BeautifulSoup(html, 'html.parser')
-    posts = soup.find_all('span', id='ReportIDname').parent
+    posts = map(lambda span: span.parent, soup.find_all('span', id='ReportIDname'))
     return {
         'title': 'NEEA - NCRE',
         'link': url,
