@@ -11,8 +11,8 @@ def parse(post):
         'title': post.find('div', class_='Title').a.text,
         'description': f'{views} views, {comments} comments',
         'category': post.find('div', class_='Meta').find('span', class_='Category').a.text,
-        'link': post.find('div', class_='Title').a.attr['href'],
-        'pubDate': post.find('div', class_='Meta').find('span', class_='LastCommentDate').time.attr['datetime'],
+        'link': post.find('div', class_='Title').a['href'],
+        'pubDate': post.find('div', class_='Meta').find('span', class_='LastCommentDate').time['datetime'],
         'author': post.find('div', class_='Meta').find('span', class_='LastCommentBy').a.text
     }
 
