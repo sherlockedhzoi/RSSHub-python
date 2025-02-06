@@ -11,7 +11,7 @@ def parse(post):
         'category': post['contest']['name'] if post['contest'] is not None else 'GPLT',
         'link': post['href'],
         'pubDate': post['publishedAt'],
-        'author': '主办方'
+        'author': 'GPLT 主办方'
     }
 
 def ctx():
