@@ -5,8 +5,6 @@ from bs4 import BeautifulSoup
 domain = 'https://www.ccf.org.cn'
 
 def parse(post):
-    views = post.find('div', class_='Meta').find('span', class_='ViewCount').span.text
-    comments = post.find('div', class_='Meta').find('span', class_='CommentCount').span.text
     return {
         'title': post.find('div', class_='info').find('a', class_='name').text,
         'description': post.find('div', class_='info').find('div', class_='summary').a.text,
