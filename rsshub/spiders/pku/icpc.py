@@ -2,7 +2,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-domain = 'https://www.5paradigm.cn/'
+domain = 'http://icpc.pku.edu.cn'
 
 def parse(post):
     return {
@@ -14,7 +14,7 @@ def parse(post):
     }
 
 def ctx():
-    url = domain
+    url = f'{domain}/tzgg/index.htm'
     html = requests.get(url).text
     soup = BeautifulSoup(html, 'html.parser')
     posts = soup.find('div', class_='article').find('ul', class_='item-list').find_all('li')        
