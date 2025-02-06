@@ -56,6 +56,11 @@ def filter_content(ctx):
 
 #---------- feed路由从这里开始 -----------#
 
+@bp.route('/neea/ncre')
+def ncre():
+    from rsshub.spiders.neea.ncre import ctx
+    return render_template('main/atom.xml', **filter_content(ctx()))
+
 @bp.route('/pku/icpc')
 def icpc():
     from rsshub.spiders.pku.icpc import ctx
