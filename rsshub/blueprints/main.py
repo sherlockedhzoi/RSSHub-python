@@ -55,6 +55,11 @@ def filter_content(ctx):
 
 
 #---------- feed路由从这里开始 -----------#
+@bp.route('/ccpc')
+def ccpc():
+    from rsshub.spiders.ccpc.index import ctx
+    return render_template('main/atom.xml', **filter_content(ctx()))
+
 @bp.route('/baidu/astar')
 def astar():
     from rsshub.spiders.baidu.astar import ctx
