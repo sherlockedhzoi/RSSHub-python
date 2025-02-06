@@ -55,6 +55,11 @@ def filter_content(ctx):
 
 
 #---------- feed路由从这里开始 -----------#
+@bp.route('/tsinghua/iiis')
+def iiis_zs():
+    from rsshub.spiders.tsinghua.iiis import ctx
+    return render_template('main/atom.xml', **filter_content(ctx()))
+
 @bp.route('/cas/ict/sszs')
 def ict_sszs():
     from rsshub.spiders.cas.ict import ctx
